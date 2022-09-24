@@ -12,6 +12,20 @@ class CustomDialog @JvmOverloads constructor(
     attributeSet: AttributeSet? = null,
     defStyle: Int = 0
 ) : AlertDialog(context, defStyle) {
+
+//    override fun show() {
+//        window?.decorView?.apply {
+//            visibility = View.GONE
+//            zoomIn()
+//        }
+//        super.show()
+//    }
+
+//    override fun setOnDismissListener(listener: DialogInterface.OnDismissListener?) {
+//        window?.decorView?.zoomOut()
+//        super.setOnDismissListener(listener)
+//    }
+
     override fun getWindow(): Window? {
         val window = super.getWindow()
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
