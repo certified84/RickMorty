@@ -1,13 +1,10 @@
-package com.certified.rickmorty
+package com.certified.rickmorty.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.certified.rickmorty.databinding.ActivityMainBinding
-import com.certified.rickmorty.ui.RickMortyViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.ExperimentalCoroutinesApi
 
-@OptIn(ExperimentalCoroutinesApi::class)
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
