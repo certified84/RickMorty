@@ -1,5 +1,7 @@
 package com.certified.rickmorty.di
 
+import com.certified.rickmorty.data.network.RickMortyApiService
+import com.certified.rickmorty.data.repository.RickMortyRepository
 import com.certified.rickmorty.util.Config.BASE_URL
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -39,11 +41,11 @@ object NetworkModule {
         .addInterceptor(logger)
         .build()
 
-//    @Provides
-//    fun provideRickMortyApiService(retrofit: Retrofit): RickMortyApiService =
-//        retrofit.create(RickMortyApiService::class.java)
+    @Provides
+    fun provideRickMortyApiService(retrofit: Retrofit): RickMortyApiService =
+        retrofit.create(RickMortyApiService::class.java)
 //
-//    @Provides
-//    fun provideGitHubRepository(service: RickMortyApiService): RickMortyRepository =
-//        RickMortyRepository(service)
+    @Provides
+    fun provideRickMortyRepository(service: RickMortyApiService): RickMortyRepository =
+        RickMortyRepository(service)
 }
