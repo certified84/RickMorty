@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
@@ -15,12 +16,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.certified.rickmorty.ui.CharacterGrid
-import com.certified.rickmorty.ui.ListContent
 import com.certified.rickmorty.ui.RickMortyViewModel
 import com.certified.rickmorty.ui.theme.RickMortyTheme
+import com.certified.rickmorty.ui.theme.SpaceGrotesk
 import com.intuit.sdp.R
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -51,7 +56,25 @@ class MainActivity : ComponentActivity() {
                             ),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Log.d("TAG", "onCreate: ${viewModel.pagingDataFlow.collectAsLazyPagingItems().itemCount}")
+                        Log.d(
+                            "TAG",
+                            "onCreate: ${viewModel.pagingDataFlow.collectAsLazyPagingItems().itemCount}"
+                        )
+
+                        Spacer(modifier = Modifier.padding(10.dp))
+
+                        Text(
+                            text = "Rick & Morty - Compose",
+                            fontSize = 24.sp,
+                            fontFamily = SpaceGrotesk,
+                            fontWeight = FontWeight.Bold,
+//                    color = Color.White,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+
+                        Spacer(modifier = Modifier.padding(16.dp))
+
                         CharacterGrid(items = viewModel.pagingDataFlow.collectAsLazyPagingItems())
 
                     }
