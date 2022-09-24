@@ -17,14 +17,14 @@ package com.certified.rickmorty.data.model
 
 data class Character(
     val id: Int = -1,
-    val name: String = "",
-    val status: String = "",
+    val name: String = "Crazy Rick",
+    val status: String = "Alive",
     val species: String = "",
     val type: String = "",
-    val gender: String = "",
+    val gender: String = "Male",
     val origin: Origin = Origin(),
     val location: Location = Location(),
-    val image: String = "",
+    val image: String = "https://rickandmortyapi.com/api/character/avatar/361.jpeg",
     val episode: List<String> = mutableListOf(),
     val url: String = "",
     val created: String = "",
