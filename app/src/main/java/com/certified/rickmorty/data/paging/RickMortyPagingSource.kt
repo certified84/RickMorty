@@ -17,7 +17,7 @@ class RickMortyPagingSource(
         val position = params.key ?: RICK_MORTY_STARTING_PAGE_INDEX
 //        val apiQuery = query + IN_QUALIFIER
         return try {
-            val response = service.getCharacters()
+            val response = service.getCharacters(position)
             val characters = response.results
             val nextKey = if (characters.isEmpty()) {
                 null
