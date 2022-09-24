@@ -15,7 +15,6 @@ class RickMortyPagingSource(
 ) : PagingSource<Int, Character>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Character> {
         val position = params.key ?: RICK_MORTY_STARTING_PAGE_INDEX
-//        val apiQuery = query + IN_QUALIFIER
         return try {
             val response = service.getCharacters(position)
             val characters = response.results
