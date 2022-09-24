@@ -14,8 +14,6 @@ task clean(type: Delete) {
 }
 
 ext {
-    compose_version = '1.2.0'
     retrofitVersion = '2.9.0'
     okhttpLoggingInterceptorVersion = '4.9.0'
-    pagingVersion = '3.1.1'
 }
