@@ -10,7 +10,7 @@ import com.certified.rickmorty.adapter.CharacterAdapter
 import com.certified.rickmorty.data.model.Character
 import com.certified.rickmorty.databinding.ActivityMainBinding
 import com.certified.rickmorty.databinding.DialogCharacterDetailsBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.certified.rickmorty.ui.custom.CustomDialog
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -50,10 +50,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showDetailsDialog(character: Character?) {
-        val builder = MaterialAlertDialogBuilder(this)
+        val dialog = CustomDialog(this)
         val view = DialogCharacterDetailsBinding.inflate(layoutInflater)
         view.character = character
-        builder.apply {
+        dialog.apply {
             setView(view.root)
             show()
         }
