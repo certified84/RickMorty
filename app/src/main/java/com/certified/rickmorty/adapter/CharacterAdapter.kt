@@ -32,11 +32,21 @@ class CharacterAdapter : PagingDataAdapter<Character, CharacterAdapter.ViewHolde
                     binding.visible = visible
                 }
             }
+            itemView.setOnLongClickListener {
+                val position = absoluteAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    listener.onItemLongClick(getItem(position))
+                    visible = !visible
+                    binding.visible = visible
+                    true
+                } else false
+            }
         }
     }
 
     interface OnItemClickedListener {
         fun onItemClick(character: Character?)
+        fun onItemLongClick(character: Character?)
     }
 
     fun setOnItemClickedListener(listener: OnItemClickedListener) {
