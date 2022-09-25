@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.certified.rickmorty.data.model.Character
 import com.certified.rickmorty.databinding.ItemCharacterBinding
+import com.certified.rickmorty.util.Extensions.hold
 
 class CharacterAdapter : PagingDataAdapter<Character, CharacterAdapter.ViewHolder>(diffCallback) {
 
@@ -24,23 +25,21 @@ class CharacterAdapter : PagingDataAdapter<Character, CharacterAdapter.ViewHolde
         }
 
         init {
-            itemView.setOnClickListener {
+            binding.root.hold(click = {
                 val position = absoluteAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     listener.onItemClick(getItem(position))
                     visible = !visible
                     binding.visible = visible
                 }
-            }
-            itemView.setOnLongClickListener {
+            }, longClick = {
                 val position = absoluteAdapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     listener.onItemLongClick(getItem(position))
                     visible = !visible
                     binding.visible = visible
-                    true
-                } else false
-            }
+                }
+            })
         }
     }
 

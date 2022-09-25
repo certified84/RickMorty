@@ -16,14 +16,10 @@ import javax.inject.Inject
 class RickMortyViewModel @Inject constructor(private val repository: RickMortyRepository) :
     ViewModel() {
 
-    val pagingDataFlow: Flow<PagingData<Character>>
-
-    //    private var _characters = MutableLiveData<PagingData<Character>>()
     val characters: LiveData<PagingData<Character>>
 
     init {
         characters = getCharacters().asLiveData()
-        pagingDataFlow = getCharacters()
     }
 
     private fun getCharacters(): Flow<PagingData<Character>> =

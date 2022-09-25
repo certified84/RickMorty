@@ -27,7 +27,7 @@
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/iv_image"
-                load_image="@{character.image}"
+                app:load_image="@{character.image}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
@@ -43,9 +43,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:textAlignment="center"
                 android:layout_marginTop="@dimen/_8sdp"
                 android:text="@{character.name}"
+                android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="@dimen/_16ssp"
                 app:fontFamily="@font/space_grotesk_bold"
